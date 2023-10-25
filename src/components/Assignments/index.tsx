@@ -3,19 +3,18 @@ import styles from "./assignments.module.css";
 import { useState, useEffect  } from "react";
 
 type AssignmentsProps = {
-  assignments: string[]; // Define it as an array of strings
+  assignments: { title: string; dueDate: Date | null }[]; // Define it as an array of strings
   onRemoveAssignment: (index: number) => void;
 };
 
 
 
 export function Assignments({ assignments, onRemoveAssignment }: AssignmentsProps) {
-  const [completedAssignments, setCompAssignments] = useState<string[]>([]);
+  const [completedAssignments, setCompAssignments] = useState<{ title: string; dueDate: Date | null }[]>([]);
 
 
 
   useEffect(() => {
-    console.log(completedAssignments);
   }, [completedAssignments]);
 
   const handleDeleteAssignment = (index: number) => {
@@ -29,7 +28,7 @@ export function Assignments({ assignments, onRemoveAssignment }: AssignmentsProp
     
   };
 
-  const handleCompletedAssignment = (assignment : string) =>{
+  const handleCompletedAssignment = (assignment : { title: string; dueDate: Date | null }) =>{
     if(completedAssignments.includes(assignment)){
       const updatedCompletedAssignments = completedAssignments.filter(
         (compAssignment) => compAssignment !== assignment

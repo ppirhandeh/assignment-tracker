@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 
 function App() {
-  const [assignments, setAssignments] = useState<string[]>([]); // Store assignments here
+  const [assignments, setAssignments] = useState<{ title: string; dueDate: Date | null }[]>([]);
+
 
   const handleRemoveAssignment = (index: number) => {
     const updatedAssignments = [...assignments];
@@ -14,15 +15,16 @@ function App() {
     setAssignments(updatedAssignments);
   };
 
-  // Define a function to add assignments
-  const addAssignment = (newAssignment: string) => {
-    setAssignments([...assignments, newAssignment]);
-  };
+ // Define a function to add a new assignment
+const addAssignment = (newAssignment: { title: string; dueDate: Date | null}) => {
+  setAssignments([...assignments, newAssignment]);
+  console.log(newAssignment);
+};
 
   // console.log(assignments);
   return (
     <>
-       <Header addAssignment={addAssignment} />
+      <Header addAssignment={addAssignment} />
       <Assignments assignments={assignments}
       onRemoveAssignment={handleRemoveAssignment}
        />

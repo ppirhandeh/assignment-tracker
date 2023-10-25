@@ -47,6 +47,25 @@
   font-size: 14px;
 }
 
+.datePicker {
+  height: 100%;
+  padding: 0 16px;
+  background: none;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.datePicker input{
+  height: 53px;
+  width: 120px;
+}
+
 .newAssignmentForm button:disabled {
   background-color: #ccc; /* Gray background color */
   color: #b5b1b1; /* Gray text color */
